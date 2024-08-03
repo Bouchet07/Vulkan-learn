@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Project name
+project(vulkan-learn)
+
+# Specify the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Compiler flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+
+# Include directories
+include_directories(
+    C:/glfw-3.4/include
+    C:/VulkanSDK/1.3.290.0/Include
+    C:/glm_parent
+)
+
+# Library directories
+link_directories(
+    C:/glfw-3.4/lib-mingw-w64
+    C:/VulkanSDK/1.3.290.0/Lib
+)
+
+# Source files
+file(GLOB_RECURSE SRCS src/*.cpp)
+
+# Executable
+add_executable(${PROJECT_NAME} ${SRCS})
+
+# Link libraries
+target_link_libraries(${PROJECT_NAME}
+    glfw3
+    vulkan-1
+)
